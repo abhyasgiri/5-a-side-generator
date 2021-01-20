@@ -1,0 +1,31 @@
+version: '3.3'
+services:
+  football_frontend: 
+    container_name: football-cards_service-1
+    image: abhyasgiri/service-1:latest
+    build: ./service_1
+    ports:
+    - target: 5000
+      published: 5000
+      protocol: tcp
+    environment:
+      DATABASE_URI: ${DATABASE_URI}
+  nation-backend:
+      container_name: football-cards_nation-backend
+      image: abhyasgiri/nation-backend:latest
+      build: ./service_2
+  pack_backend:
+      container_name: football-cards_pack-backend
+      image: abhyasgiri/pack-backend:latest
+      build: ./service_3
+  player_backend:
+      container_name: football-cards_player-backend
+      image: abhyasgiri/pack-backend:latest
+      build: ./service_4
+
+
+
+#do docker login before pushing anything up - obviously
+#don't necessarily have to put/publish ports for  other serives when it comes to deployment as they're all in the
+#same network, and the ports are always open. Only need to specify ports 5001,5002,5003 if we're testing each service out seperately or using postman
+#given the stack name as football-cards which i will have to say when doing the stack deploy command 
