@@ -20,7 +20,7 @@ services:
       build: ./service_3
   player_backend:
       container_name: football-cards_player-backend
-      image: abhyasgiri/pack-backend:latest
+      image: abhyasgiri/player-backend:latest
       build: ./service_4
 
 

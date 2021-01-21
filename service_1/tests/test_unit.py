@@ -8,7 +8,7 @@ from application.models import Players
 
 class TestBase(TestCase):
     def create_app(self):
-        app.config.update(SQLALCHEMY_DATABASE_URI = "sqlite:///")
+        app.config.update(SQLALCHEMY_DATABASE_URI = "sqlite:///data.db")
         return app
 
     def setUp(self):
