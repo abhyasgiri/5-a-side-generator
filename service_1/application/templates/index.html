@@ -8,8 +8,8 @@
 
 <h2> Players previously packed </h2>
 <p>
-    { % for new_player in all_players %}
-    {{ Players.player_name }}
+    {% for new_player in all_players %}
+    {{ new_player.player_name }}
     <br><br>
     {% endfor %}
 

@@ -5,12 +5,12 @@ from flask import render_template, flash
 
 @app.route("/")
 def index():
-    league_response = requests.get("http://football-cards_service-2:5000/league")
-    pack_response = requests.get("http://football-cards_service-3:5000/pack", data=league_response.text)
+    league_response = requests.get("http://football-cards_nation-backend:5002/league")
+    pack_response = requests.get("http://football-cards_pack-backend:5003/pack", data=league_response.text)
 
     information = {'league': league_response.json()["league"] , 'pack': pack_response.json()["pack"]}
 
-    player_response = requests.post("http://football-cards_service-4:5000/player", json=information)
+    player_response = requests.post("http://football-cards_player-backend:5004/player", json=information)
 
     new_player = Players(player_name=player_response.text)
     db.session.add(new_player)
