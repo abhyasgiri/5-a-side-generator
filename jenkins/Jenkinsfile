@@ -6,6 +6,7 @@ pipeline{
     stages{
         stage("Testing"){
             steps{
+                sh "echo'testing stage starting'"
                 sh "bash jenkins/test.sh"
             }
         }

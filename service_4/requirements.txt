@@ -1,2 +1,10 @@
 flask
 requests
+flask_sqlalchemy
+pymysql
+
+pytest
+pytest-cov
+
+flask_testing
+requests_mock
