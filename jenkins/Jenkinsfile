@@ -14,8 +14,7 @@ pipeline{
                 //sh "bash install_docker.sh"
                 //sh "sudo usermod -aG docker jenkins"
                 //sh "sudo su - jenkins"
-                // -> sh "bash jenkins/docker_build.sh"
-                sh "echo 'skip'"
+                sh "bash jenkins/docker_build.sh"
             }
         }
         stage("Config Management (ansible)"){
