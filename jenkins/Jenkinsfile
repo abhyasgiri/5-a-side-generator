@@ -14,7 +14,8 @@ pipeline{
                 //sh "bash install_docker.sh"
                 //sh "sudo usermod -aG docker jenkins"
                 //sh "sudo su - jenkins"
-                sh "bash jenkins/docker_build.sh"
+                // -> sh "bash jenkins/docker_build.sh"
+                sh "echo 'skip'"
             }
         }
         stage("Config Management (ansible)"){
@@ -24,7 +25,8 @@ pipeline{
                 // ssh keys generated from jenkins machine for jenkins user (ssh-keygen)
                 // sudo su - jenkins, install ansible on this machine for jenkins
                 // jenkins runs playbook
-                sh "cd ansible && /home/jenkins/.local/bin/ansible-playbook -i inventory playbook.yaml"
+                // -> sh "cd ansible && /home/jenkins/.local/bin/ansible-playbook -i inventory playbook.yaml"
+                sh "echo 'skip'"
             }
         }
         stage("Deploy"){
@@ -32,6 +34,7 @@ pipeline{
                 // copy docker-compose.yaml over ssh (scp command)
                 // set env variables on swarm manager
                 // ssh into swarm manager to deploy the stack
+                sh "echo 'skip'"
             }
         }
     }
