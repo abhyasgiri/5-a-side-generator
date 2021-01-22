@@ -14,14 +14,12 @@ cd ..
 
 #Test service 2
 cd service_2
-pip3 install -r requirements.txt
 python3 -m pytest --cov=application --cov-report xml --cov-report term-missing --junitxml junit.xml
 deactivate
 cd ..
 
 #Test service 3
 cd service_3
-pip3 install -r requirements.txt
 python3 -m pytest --cov=application --cov-report xml --cov-report term-missing --junitxml junit.xml
 deactivate
 cd ..
