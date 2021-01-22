@@ -10,6 +10,9 @@ pipeline{
             }
         }
         stage("Build & Push"){
+            environment{
+                docker_credentials = credentials('docker-hub-credentials')
+            }
             steps{
                 //sh "bash install_docker.sh"
                 //sh "sudo usermod -aG docker jenkins"
