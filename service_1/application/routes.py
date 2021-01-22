@@ -18,7 +18,7 @@ def index():
 
     all_players = Players.query.all()
 
-    return render_template("index.html", new_player=player_response.text, pack=pack_response.text, league=league_response.text, all_players=all_players)
+    return render_template("index.html", new_player=player_response.text, pack=pack_response.json()["pack"], league=league_response.json()["league"], all_players=all_players)
 
 
 #do logic in service 4

@@ -1,13 +1,18 @@
 ---
-- name: initialize 
+- name: Setup nginx
+  become: true
+  hosts: nginx
+  roles:
+    - nginx
+- name: Initialise Docker Swarm
   become: true
   hosts: managers
   roles:
     - docker
     - swarm-init
-- name: add workers to swarm
+- name: Add Workers to swarm
   become: true
-  hosts: workers
+  hosts: Workers
   roles:
     - docker
-    - swarm-worker
+    - swarm-workers

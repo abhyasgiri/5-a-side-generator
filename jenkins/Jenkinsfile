@@ -25,8 +25,7 @@ pipeline{
                 // ssh keys generated from jenkins machine for jenkins user (ssh-keygen)
                 // sudo su - jenkins, install ansible on this machine for jenkins
                 // jenkins runs playbook
-                // -> sh "cd ansible && /home/jenkins/.local/bin/ansible-playbook -i inventory playbook.yaml"
-                sh "echo 'skip'"
+                sh "cd ansible && /home/jenkins/.local/bin/ansible-playbook -i inventory playbook.yaml"
             }
         }
         stage("Deploy"){
