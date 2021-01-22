@@ -2,6 +2,7 @@ pipeline{
     agent any
     environment{
         DATABASE_URI = credentials("DATABASE_URI")
+        SECRET_KEY = credentials("SECRET_KEY")
     }
     stages{
         stage("Testing"){
@@ -14,13 +15,10 @@ pipeline{
                 docker_credentials = credentials('docker-hub-credentials')
             }
             steps{
-                //sh "bash install_docker.sh"
-                //sh "sudo usermod -aG docker jenkins"
-                //sh "sudo su - jenkins"
                 sh "bash jenkins/docker_build.sh"
             }
         }
-        stage("Config Management (ansible)"){
+        stage("Config Swarm"){
             steps{
                 // write out playbook, inventory
                 // with roles
@@ -36,8 +34,14 @@ pipeline{
                 // copy docker-compose.yaml over ssh (scp command)
                 // set env variables on swarm manager
                 // ssh into swarm manager to deploy the stack
-                sh "echo 'skip'"
+                sh "bash Jenkins/deploy_stack.sh" 
             }
+        }
+    }
+    post {
+        always {
+            junit 'junit.xml'
+            cobertura coberturaReportFile: 'coverage.xml', failNoReports: false
         }
     }
 }
