@@ -6,18 +6,15 @@ pipeline{
     stages{
         stage("Testing"){
             steps{
-                sh jenkins/test.sh
-                // write tests for each service
-                // pytest on each service
+                sh "bash jenkins/test.sh"
             }
         }
         stage("Build & Push"){
             steps{
-                // install docker and docker-compose
-                // add jenkins to docker group
-                // sudo su - jenkins, docker login
-                // docker-compose build and push
-                sh "docker-compose build && docker-compose push"
+                //sh "bash install_docker.sh"
+                //sh "sudo usermod -aG docker jenkins"
+                //sh "sudo su - jenkins"
+                sh "bash jenkins/docker_build.sh"
             }
         }
         stage("Config Management (ansible)"){
