@@ -30,10 +30,3 @@ services:
       build: ./service_4
       deploy:
         replicas: 3
-
-
-
-#do docker login before pushing anything up - obviously
-#don't necessarily have to put/publish ports for  other serives when it comes to deployment as they're all in the
-#same network, and the ports are always open. Only need to specify ports 5001,5002,5003 if we're testing each service out seperately or using postman
-#given the stack name as football-cards which i will have to say when doing the stack deploy command 
