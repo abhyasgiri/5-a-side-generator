@@ -24,15 +24,13 @@ class TestResponse(TestBase):
 
     def test_one(self):
         with requests_mock.mock() as m:
-            m.get("http://football-cards_nation-backend:5002/league", text="English")
-            m.get("http://football-cards_pack_backend:5003/pack", text="Gold")
-            information = {"pack" : 'Gold', "league" : 'English'}
-            m.post("http://football-cards_player_backend:5004/player", json=information)
+            m.get("http://football-cards_nation-backend:5002/league", json= {"league" : "English"})
+            m.get("http://football-cards_pack_backend:5003/pack", json= {"pack" : "Gold"})
+            m.post("http://football-cards_player_backend:5004/player", text="Pogba")
             response = self.client.get(url_for('index'))
-            self.assertIn(b"English", response.data) 
-
-
-
+            self.assertIn(b"English", response.data)
+            self.assertIn(b"Gold", response.data)
+            self.assertIn(b"Pogba", response.data)
 
 
 
