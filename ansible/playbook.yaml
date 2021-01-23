@@ -5,15 +5,17 @@
   roles:
     - docker
     - swarm-init
+
 - name: Add Workers to swarm
   become: true
   hosts: workers
   roles:
     - docker
     - swarm-worker
+    
 - name: Setup nginx loadbalancer
   become: true
   hosts: nginx
   roles:
-  - docker
-  - nginx
+    - docker
+    - nginx
