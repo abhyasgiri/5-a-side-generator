@@ -19,13 +19,13 @@ services:
       deploy:
         replicas: 3
   pack_backend:
-      container_name: football-cards_pack-backend
+      container_name: football-cards_pack_backend
       image: abhyasgiri/pack-backend:latest
       build: ./service_3
       deploy:
         replicas: 3
   player_backend:
-      container_name: football-cards_player-backend
+      container_name: football-cards_player_backend
       image: abhyasgiri/player-backend:latest
       build: ./service_4
       deploy:
