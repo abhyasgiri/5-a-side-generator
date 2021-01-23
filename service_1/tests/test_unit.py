@@ -35,8 +35,6 @@ class TestResponse(TestBase):
 
 
 
-
-
             #self.assertIn(b"You have won test_player", response.data) #maybe remove this? it tries to check for test_player from above but i dont think that goes through the system as it doesnt have a pack or league
 
 
