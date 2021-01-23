@@ -26,7 +26,7 @@ class TestResponse(TestBase):
         with requests_mock.mock() as m:
             m.get("http://football-cards_nation-backend:5002/league", text="English")
             m.get("http://football-cards_pack-backend:5003/pack", text="Gold")
-            information = {"pack" : "Gold", "league" : "English"}
+            information = {"pack" : 'Gold', "league" : 'English'}
             m.post("http://football-cards_player-backend:5004/player", json=information)
             response = self.client.get(url_for('index'))
             self.assertIn(b"English", response.data) #need to correct frontend display
