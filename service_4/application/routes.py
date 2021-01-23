@@ -46,62 +46,6 @@ def get_player():
 
 #to imporve it i can choose a player to come from a separate database
 #if testing for each if statement is getting tedious maybe only have gold and silver packs 
-'''
-players = [
-    {
-        "league": "English",
-        "pack": "Gold",
-        "player_name": ["Pogba", "Firmino", "Son", "Kane"]
-    },
-    {
-        "league": "English",
-        "pack": "Silver",
-        "player_name": ["Grealish", "Baily", "Neto", "Matip"]
-    },
-
-    {
-        "league": "English",
-        "pack": "Bronze",
-        "player_name": ["Knight", "Obafemi", "Shabani"]
-    } 
-
-    {
-        league: "Spanish",
-        pack: "Gold",
-        player_name: ["Hazard", "Messi", "Suarez", "Joao Felix"]
-    },
-
-    {
-        league: "Spanish",
-        pack: "Silver",
-        player_name: ["Doumbia", "Jose Espino", "Alvaro Vallejo", "Sergio Leon"]
-    },
-
-    {
-        league: "Spanish",
-        pack: "Bronze",
-        player_name: ["Fede Vadillo", "Ximo Navarro", "Mosquera"]
-    },
-
-    {
-        league: "German",
-        pack: "Gold",
-        player_name: ["Jaden Sancho", "Erling Halland", "Robert Lewandowski", "Serge Gnabry"]
-    },
-
-    {
-        league: "German",
-        pack: "Silver",
-        player_name: ["Richter", "Ziegler", "Thomas Friedrich"]
-    },
-
-    {
-        league: "German",
-        pack: "Bronze",
-        player_name: ["Schmelzer", "Drexler", "Geiger"]
-    }
-]
-''' 
 
 #using the nation and the pack, this service gives us a player card(s) 
 

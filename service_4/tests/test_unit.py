@@ -11,6 +11,8 @@ class TestBase(TestCase):
 class TestResponse(TestBase):
 
     def test_player(self):
-        league = ["English", "Spanish", "German"]
-        pack = ["Gold", "Silver", "Bronze"]
-        player_name = [b"Pogba" ]
+        information 
+        with patch("random.choice") as m:
+            m.return_value.text = "Pogba"
+            response = self.client.get(url_for("get_player"), json={"league" : "English", "pack" : "Gold"})
+            self.assertIn(b"Pogba", response.data)
