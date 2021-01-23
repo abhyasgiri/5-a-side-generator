@@ -12,7 +12,7 @@
   roles:
     - docker
     - swarm-worker
-    
+
 - name: Setup nginx loadbalancer
   become: true
   hosts: nginx
