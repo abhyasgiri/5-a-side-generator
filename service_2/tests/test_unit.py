@@ -16,8 +16,4 @@ class TestResponse(TestBase):
             response = self.client.get(url_for('get_league'))
             self.assertIn(b"German", response.data)
 
-#        for _ in range(10):
-#            response = self.client.get(url_for('get_league'))
-#            self.assertIn(response.data, [b"English", b"Spanish", b"German"])
-    
     

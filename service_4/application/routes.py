@@ -42,12 +42,3 @@ def get_player():
         players_pack = ["Schmelzer", "Drexler", "Geiger"]
         player_name = random.choice(players_pack) 
         return Response(player_name, mimetype ='text/plain')
-
-
-#to imporve it i can choose a player to come from a separate database
-#if testing for each if statement is getting tedious maybe only have gold and silver packs 
-
-#using the nation and the pack, this service gives us a player card(s) 
-
-#(which is a choice between 2 players)
-#two different modes: normal run, and there will be happy hour mode where the chance of getting Gold pack 50% instead of 33%
