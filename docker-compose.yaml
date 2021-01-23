@@ -17,19 +17,19 @@ services:
       image: abhyasgiri/nation-backend:latest
       build: ./service_2
       deploy:
-      replicas: 3
+        replicas: 3
   pack_backend:
       container_name: football-cards_pack-backend
       image: abhyasgiri/pack-backend:latest
       build: ./service_3
       deploy:
-      replicas: 3
+        replicas: 3
   player_backend:
       container_name: football-cards_player-backend
       image: abhyasgiri/player-backend:latest
       build: ./service_4
       deploy:
-      replicas: 3
+        replicas: 3
 
 
 
