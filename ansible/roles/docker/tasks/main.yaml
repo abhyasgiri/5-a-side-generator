@@ -27,10 +27,12 @@
     name: docker-ce
     state: latest
     update_cache: true
+
 - name: Start docker service
   service:
     name: docker
     state: started
+    
 - name: pip docker
   pip:
     executable: pip3

@@ -11,4 +11,6 @@ class TestBase(TestCase):
 class TestResponse(TestBase):
 
     def test_player(self):
-        
+        league = ["English", "Spanish", "German"]
+        pack = ["Gold", "Silver", "Bronze"]
+        player_name = [b"Pogba" ]
