@@ -15,6 +15,7 @@ pipeline{
                 docker_credentials = credentials('docker-hub-credentials')
             }
             steps{
+                sh "docker system prune -af"
                 sh "bash jenkins/docker_build.sh"
             }
         }
