@@ -16,6 +16,6 @@ def index():
     db.session.add(new_player)
     db.session.commit()
 
-    all_players = Players.query.all()
+    all_players = Players.query.order_by(desc("id")).limit(5).all()
 
     return render_template("index.html", new_player=player_response.text, pack=pack_response.json()["pack"], league=league_response.json()["league"], all_players=all_players)
