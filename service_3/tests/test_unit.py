@@ -15,4 +15,3 @@ class TestResponse(TestBase):
             m.return_value = "Gold"
             response = self.client.get(url_for('get_pack'))
             self.assertIn(b"Gold", response.data)
-
