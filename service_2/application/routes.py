@@ -4,6 +4,6 @@ import random
 
 @app.route("/league", methods=["GET"])
 def get_league():
-    leagues = ["English", "Spanish", "German"]
+    leagues = ["ENGLISH", "SPANISH", "GERMAN"]
     return jsonify({"league" : random.choice(leagues)})
 
