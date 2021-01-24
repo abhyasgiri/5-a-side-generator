@@ -2,6 +2,7 @@ from application import app, db
 import requests
 from application.models import Players
 from flask import render_template, flash
+from sqlalchemy import desc
 
 @app.route("/")
 def index():
@@ -16,14 +17,6 @@ def index():
     db.session.add(new_player)
     db.session.commit()
 
-    all_players = Players.query.all()
+    all_players = Players.query.order_by(desc("id")).limit(5).all()
 
     return render_template("index.html", new_player=player_response.text, pack=pack_response.json()["pack"], league=league_response.json()["league"], all_players=all_players)
-
-
-#do logic in service 4
-#player picks a random league, gets a random pack (gold, silver, bronze), 
-#happy hour and normal times - happy hour the chance of getting gold pack is 50%
-#and if you get a silver pack, you get two players
-
-#make the query a bit more selective - 

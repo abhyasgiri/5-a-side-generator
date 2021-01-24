@@ -1,4 +1,3 @@
-from unittest.mock import patch
 from flask import url_for
 from flask_testing import TestCase
 import requests_mock
@@ -31,11 +30,3 @@ class TestResponse(TestBase):
             self.assertIn(b"English", response.data)
             self.assertIn(b"Gold", response.data)
             self.assertIn(b"Pogba", response.data)
-
-
-
-
-            #self.assertIn(b"You have won test_player", response.data) #maybe remove this? it tries to check for test_player from above but i dont think that goes through the system as it doesnt have a pack or league
-
-
-

@@ -16,6 +16,3 @@ class TestResponse(TestBase):
             response = self.client.get(url_for('get_pack'))
             self.assertIn(b"Gold", response.data)
 
-#        for _ in range(10):
-#            response = self.client.get(url_for('get_pack'))
-#            self.assertIn(response.data, [b"Gold", b"Silver", b"Bronze"])
