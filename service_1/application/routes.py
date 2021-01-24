@@ -2,6 +2,7 @@ from application import app, db
 import requests
 from application.models import Players
 from flask import render_template, flash
+from sqlalchemy import desc
 
 @app.route("/")
 def index():
