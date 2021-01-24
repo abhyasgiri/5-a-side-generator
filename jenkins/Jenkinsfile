@@ -1,0 +1,47 @@
+pipeline{
+    agent any
+    environment{
+        DATABASE_URI = credentials("DATABASE_URI")
+        SECRET_KEY = credentials("SECRET_KEY")
+    }
+    stages{
+        stage("Testing"){
+            steps{
+                sh "bash jenkins/test.sh"
+            }
+        }
+        stage("Build & Push"){
+            environment{
+                docker_credentials = credentials('docker-hub-credentials')
+            }
+            steps{
+                sh "docker system prune -af"
+                sh "bash jenkins/docker_build.sh"
+            }
+        }
+        stage("Config Swarm"){
+            steps{
+                // write out playbook, inventory
+                // with roles
+                // ssh keys generated from jenkins machine for jenkins user (ssh-keygen)
+                // sudo su - jenkins, install ansible on this machine for jenkins
+                // jenkins runs playbook
+                sh "cd ansible && /home/jenkins/.local/bin/ansible-playbook -i inventory playbook.yaml"
+            }
+        }
+        stage("Deploy"){
+            steps{
+                // copy docker-compose.yaml over ssh (scp command)
+                // set env variables on swarm manager
+                // ssh into swarm manager to deploy the stack
+                sh "bash jenkins/deploy_stack.sh" 
+            }
+        }
+    }
+    post {
+        always {
+            junit '**/junit.xml'
+            cobertura coberturaReportFile: '**/coverage.xml', failNoReports: false
+        }
+    }
+}

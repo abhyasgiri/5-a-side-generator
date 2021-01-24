@@ -1,0 +1,17 @@
+<h1>Football Pack Opening!</h1>
+
+<h2>Refresh the to find out which player you get!</h1>
+
+<p>
+    You have won {{ new_player }} from a {{ pack }} pack in the {{ league }} league!
+</p>
+
+<h2> Players previously packed </h2>
+<p>
+    {% for new_player in all_players %}
+    {{ new_player.player_name }}
+    <br><br>
+    {% endfor %}
+
+        
+</p>
