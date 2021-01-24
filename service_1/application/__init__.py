@@ -7,10 +7,5 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = getenv("DATABASE_URI")
 db = SQLAlchemy(app)
 
-from application.models import Players
-
-db.drop_all()
-db.create_all()
-
 
 from application import routes
