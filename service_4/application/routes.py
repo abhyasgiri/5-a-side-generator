@@ -41,4 +41,4 @@ def get_player():
     elif league == "GERMAN" and pack == "Bronze":
         players_pack = ["Schmelzer", "Drexler", "Geiger"]
         player_name = random.choice(players_pack) 
-        return Response(player_name, mimetype ='text/plain')
+      

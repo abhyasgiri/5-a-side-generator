@@ -30,4 +30,3 @@ class TestResponse(TestBase):
             self.assertIn(b"English", response.data)
             self.assertIn(b"Gold", response.data)
             self.assertIn(b"Pogba", response.data)
-
