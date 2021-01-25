@@ -1,4 +1,4 @@
-# SFIA2 Practical Project: Football-Pack Player Generator
+# SFIA2 Practical Project: Football-Pack Player Generator 
 ---
 
 ## Contents
