@@ -150,7 +150,7 @@ Unit tests were written for each service. The test for service 1 uses an sqlite 
 
 ### JUnit and Cobertura Reports
 
-<img width="487" alt="tests" src="https://user-images.githubusercontent.com/74771160/105664098-c582fc80-5ecb-11eb-9386-75a1226a60da.PNG">
+<img width="340" alt="tests" src="https://user-images.githubusercontent.com/74771160/105665555-3a0b6a80-5ecf-11eb-87c6-7656194a58c9.PNG">
 
 As shown by the graph, the 4 unit tests (one for each service) has passed in the latest build. The graph makes trends easier to spot. For instance, I can easily tell by the coral triangles on the x-axis that some previous tests have failed. This has been done to show the output of error caused due to switching branches between an old branch and the most updated one where tests run successfully. 
 
