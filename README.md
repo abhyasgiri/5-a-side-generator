@@ -1,8 +1,8 @@
 # SFIA2 Practical Project: Football-Pack Player Generator 
 ---
 
-## Contents
-- Brief
+## Contents 
+- Brief 
   - Requirements
   - Additional Requirements
   - Constraints
