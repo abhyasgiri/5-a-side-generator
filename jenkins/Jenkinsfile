@@ -1,0 +1,39 @@
+pipeline{
+    agent any
+    environment{
+        DATABASE_URI = credentials("DATABASE_URI")
+        SECRET_KEY = credentials("SECRET_KEY")
+    }
+    stages{
+        stage("Testing"){
+            steps{
+                sh "bash jenkins/test.sh"
+            }
+        }
+        stage("Build & Push"){
+            environment{
+                docker_credentials = credentials('docker-hub-credentials')
+            }
+            steps{
+                sh "docker system prune -af"
+                sh "bash jenkins/docker_build.sh"
+            }
+        }
+        stage("Config Swarm"){
+            steps{
+                sh "cd ansible && /home/jenkins/.local/bin/ansible-playbook -i inventory playbook.yaml"
+            }
+        }
+        stage("Deploy"){
+            steps{
+                sh "bash jenkins/deploy_stack.sh" 
+            }
+        }
+    }
+    post {
+        always {
+            junit '**/junit.xml'
+            cobertura coberturaReportFile: '**/coverage.xml', failNoReports: false
+        }
+    }
+}
